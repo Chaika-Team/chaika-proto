@@ -662,7 +662,7 @@ const file_rprts_chaika_reports_proto_rawDesc = "" +
 	"\fSalesService\x12Q\n" +
 	"\x10GetUnsyncedTrips\x12\x16.google.protobuf.Empty\x1a%.chaika_reports.GetUnsyncedTripsReply\x12G\n" +
 	"\aGetTrip\x12\x1e.chaika_reports.GetTripRequest\x1a\x1c.chaika_reports.GetTripReply\x12U\n" +
-	"\x10DeleteSyncedTrip\x12'.chaika_reports.DeleteSyncedTripRequest\x1a\x18.chaika_reports.AckReplyB/Z-github.com/your-org/chaika-proto/gen/rprts;pbb\x06proto3"
+	"\x10DeleteSyncedTrip\x12'.chaika_reports.DeleteSyncedTripRequest\x1a\x18.chaika_reports.AckReplyB2Z0github.com/Chaika-Team/chaika-proto/gen/rprts;pbb\x06proto3"
 
 var (
 	file_rprts_chaika_reports_proto_rawDescOnce sync.Once
