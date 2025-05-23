@@ -7,7 +7,7 @@ import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
 
 // this must match where the generated code will live:
-option go_package = "github.com/your-org/chaika-proto/gen/rprts;pb";
+option go_package = "github.com/Chaika-Team/chaika-proto/gen/rprts;pb";
 
 // the gRPC service
 service SalesService {

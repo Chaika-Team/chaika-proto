@@ -1,4 +1,4 @@
-module github.com/ChaikaTeam/chaika-proto
+module github.com/Chaika-Team/chaika-proto
 
 go 1.23
 
