@@ -20,103 +20,103 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	SyncService_SyncNow_FullMethodName = "/chaika_analytics.SyncService/SyncNow"
+	AnalyticsService_SyncNow_FullMethodName = "/chaika_analytics.AnalyticsService/SyncNow"
 )
 
-// SyncServiceClient is the client API for SyncService service.
+// AnalyticsServiceClient is the client API for AnalyticsService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SyncServiceClient interface {
+type AnalyticsServiceClient interface {
 	// Triggers one background SyncOnce run.
 	SyncNow(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*SyncReply, error)
 }
 
-type syncServiceClient struct {
+type analyticsServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewSyncServiceClient(cc grpc.ClientConnInterface) SyncServiceClient {
-	return &syncServiceClient{cc}
+func NewAnalyticsServiceClient(cc grpc.ClientConnInterface) AnalyticsServiceClient {
+	return &analyticsServiceClient{cc}
 }
 
-func (c *syncServiceClient) SyncNow(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*SyncReply, error) {
+func (c *analyticsServiceClient) SyncNow(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*SyncReply, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(SyncReply)
-	err := c.cc.Invoke(ctx, SyncService_SyncNow_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, AnalyticsService_SyncNow_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// SyncServiceServer is the server API for SyncService service.
-// All implementations must embed UnimplementedSyncServiceServer
+// AnalyticsServiceServer is the server API for AnalyticsService service.
+// All implementations must embed UnimplementedAnalyticsServiceServer
 // for forward compatibility.
-type SyncServiceServer interface {
+type AnalyticsServiceServer interface {
 	// Triggers one background SyncOnce run.
 	SyncNow(context.Context, *emptypb.Empty) (*SyncReply, error)
-	mustEmbedUnimplementedSyncServiceServer()
+	mustEmbedUnimplementedAnalyticsServiceServer()
 }
 
-// UnimplementedSyncServiceServer must be embedded to have
+// UnimplementedAnalyticsServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedSyncServiceServer struct{}
+type UnimplementedAnalyticsServiceServer struct{}
 
-func (UnimplementedSyncServiceServer) SyncNow(context.Context, *emptypb.Empty) (*SyncReply, error) {
+func (UnimplementedAnalyticsServiceServer) SyncNow(context.Context, *emptypb.Empty) (*SyncReply, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SyncNow not implemented")
 }
-func (UnimplementedSyncServiceServer) mustEmbedUnimplementedSyncServiceServer() {}
-func (UnimplementedSyncServiceServer) testEmbeddedByValue()                     {}
+func (UnimplementedAnalyticsServiceServer) mustEmbedUnimplementedAnalyticsServiceServer() {}
+func (UnimplementedAnalyticsServiceServer) testEmbeddedByValue()                          {}
 
-// UnsafeSyncServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SyncServiceServer will
+// UnsafeAnalyticsServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AnalyticsServiceServer will
 // result in compilation errors.
-type UnsafeSyncServiceServer interface {
-	mustEmbedUnimplementedSyncServiceServer()
+type UnsafeAnalyticsServiceServer interface {
+	mustEmbedUnimplementedAnalyticsServiceServer()
 }
 
-func RegisterSyncServiceServer(s grpc.ServiceRegistrar, srv SyncServiceServer) {
-	// If the following call pancis, it indicates UnimplementedSyncServiceServer was
+func RegisterAnalyticsServiceServer(s grpc.ServiceRegistrar, srv AnalyticsServiceServer) {
+	// If the following call pancis, it indicates UnimplementedAnalyticsServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&SyncService_ServiceDesc, srv)
+	s.RegisterService(&AnalyticsService_ServiceDesc, srv)
 }
 
-func _SyncService_SyncNow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _AnalyticsService_SyncNow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(emptypb.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SyncServiceServer).SyncNow(ctx, in)
+		return srv.(AnalyticsServiceServer).SyncNow(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SyncService_SyncNow_FullMethodName,
+		FullMethod: AnalyticsService_SyncNow_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SyncServiceServer).SyncNow(ctx, req.(*emptypb.Empty))
+		return srv.(AnalyticsServiceServer).SyncNow(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// SyncService_ServiceDesc is the grpc.ServiceDesc for SyncService service.
+// AnalyticsService_ServiceDesc is the grpc.ServiceDesc for AnalyticsService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var SyncService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "chaika_analytics.SyncService",
-	HandlerType: (*SyncServiceServer)(nil),
+var AnalyticsService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "chaika_analytics.AnalyticsService",
+	HandlerType: (*AnalyticsServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "SyncNow",
-			Handler:    _SyncService_SyncNow_Handler,
+			Handler:    _AnalyticsService_SyncNow_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

@@ -72,8 +72,8 @@ const file_analytics_chaika_analytics_proto_rawDesc = "" +
 	"\n" +
 	" analytics/chaika_analytics.proto\x12\x10chaika_analytics\x1a\x1bgoogle/protobuf/empty.proto\"%\n" +
 	"\tSyncReply\x12\x18\n" +
-	"\amessage\x18\x01 \x01(\tR\amessage2M\n" +
-	"\vSyncService\x12>\n" +
+	"\amessage\x18\x01 \x01(\tR\amessage2R\n" +
+	"\x10AnalyticsService\x12>\n" +
 	"\aSyncNow\x12\x16.google.protobuf.Empty\x1a\x1b.chaika_analytics.SyncReplyB8Z6github.com/Chaika-Team/chaika-proto/gen/analytics;alpbb\x06proto3"
 
 var (
@@ -94,8 +94,8 @@ var file_analytics_chaika_analytics_proto_goTypes = []any{
 	(*emptypb.Empty)(nil), // 1: google.protobuf.Empty
 }
 var file_analytics_chaika_analytics_proto_depIdxs = []int32{
-	1, // 0: chaika_analytics.SyncService.SyncNow:input_type -> google.protobuf.Empty
-	0, // 1: chaika_analytics.SyncService.SyncNow:output_type -> chaika_analytics.SyncReply
+	1, // 0: chaika_analytics.AnalyticsService.SyncNow:input_type -> google.protobuf.Empty
+	0, // 1: chaika_analytics.AnalyticsService.SyncNow:output_type -> chaika_analytics.SyncReply
 	1, // [1:2] is the sub-list for method output_type
 	0, // [0:1] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
