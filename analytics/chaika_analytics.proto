@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package chaika_analytics;
+
+import "google/protobuf/empty.proto";
+
+option go_package = "github.com/Chaika-Team/chaika-proto/gen/analytics;alpb";
+
+service AnalyticsService {
+  // Triggers one background SyncOnce run.
+  rpc SyncNow (google.protobuf.Empty) returns (SyncReply);
+}
+
+message SyncReply {
+  string message = 1; // "started", "busy", "completed" etc.
+}
